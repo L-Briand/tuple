@@ -18,7 +18,10 @@ abstract class AbstractTupleSerializer<T>(vararg val descriptors: SerialDescript
         encodeSerializableElement(descriptor.getElementDescriptor(index), index, serializer, value)
     }
 
-    override fun deserialize(decoder: Decoder): T = decoder.decodeStructure(descriptor) { deserializeTuple() }
+    override fun deserialize(decoder: Decoder): T = decoder.decodeStructure(descriptor) {
+        deserializeTuple()
+    }
+
     override fun serialize(encoder: Encoder, value: T) = encoder.encodeCollection(descriptor, descriptors.size) {
         serializeTuple(value)
     }

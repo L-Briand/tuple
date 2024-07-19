@@ -1,6 +1,6 @@
 package net.orandja.kt.tuple
 
-fun tuple() = Tuple0
+// @formatter:off
 
 fun <T1> tuple(
     first: T1
@@ -43,32 +43,12 @@ fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> tuple(
 ) = Tuple10(first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth)
 
 
-operator fun <T1> Tuple0.plus(value: T1) =
-    tuple(value)
+fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> tuple(
+    first: T1, second: T2, third: T3, fourth: T4, fifth: T5, sixth: T6, seventh: T7, eighth: T8, ninth: T9, tenth: T10, eleventh: T11
+) = Tuple11(first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh)
 
-operator fun <T1, T2> Tuple1<T1>.plus(value: T2) =
-    tuple(first, value)
+fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> tuple(
+    first: T1, second: T2, third: T3, fourth: T4, fifth: T5, sixth: T6, seventh: T7, eighth: T8, ninth: T9, tenth: T10, eleventh: T11, twelfth: T12
+) = Tuple12(first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh, twelfth)
 
-operator fun <T1, T2, T3> Tuple2<T1, T2>.plus(value: T3) =
-    tuple(first, second, value)
-
-operator fun <T1, T2, T3, T4> Tuple3<T1, T2, T3>.plus(value: T4) =
-    tuple(first, second, third, value)
-
-operator fun <T1, T2, T3, T4, T5> Tuple4<T1, T2, T3, T4>.plus(value: T5) =
-    tuple(first, second, third, fourth, value)
-
-operator fun <T1, T2, T3, T4, T5, T6> Tuple5<T1, T2, T3, T4, T5>.plus(value: T6) =
-    tuple(first, second, third, fourth, fifth, value)
-
-operator fun <T1, T2, T3, T4, T5, T6, T7> Tuple6<T1, T2, T3, T4, T5, T6>.plus(value: T7) =
-    tuple(first, second, third, fourth, fifth, sixth, value)
-
-operator fun <T1, T2, T3, T4, T5, T6, T7, T8> Tuple7<T1, T2, T3, T4, T5, T6, T7>.plus(value: T8) =
-    tuple(first, second, third, fourth, fifth, sixth, seventh, value)
-
-operator fun <T1, T2, T3, T4, T5, T6, T7, T8, T9> Tuple8<T1, T2, T3, T4, T5, T6, T7, T8>.plus(value: T9) =
-    tuple(first, second, third, fourth, fifth, sixth, seventh, eighth, value)
-
-operator fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> Tuple9<T1, T2, T3, T4, T5, T6, T7, T8, T9>.plus(value: T10) =
-    tuple(first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, value)
+// @formatter:on

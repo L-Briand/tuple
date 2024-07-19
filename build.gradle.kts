@@ -14,8 +14,8 @@ fun findFilledProperty(name: String): String? = findProperty(name)?.ifBlank { nu
 group = findProperty("group")!!
 version = findProperty("version")!!
 
-val ossrhUsername = findFilledProperty("osshr.username")
-val ossrhPassword = findFilledProperty("osshr.password")
+val ossrhUsername = findFilledProperty("ossrh.username")
+val ossrhPassword = findFilledProperty("ossrh.password")
 val ossrhMavenEnabled = ossrhUsername != null && ossrhPassword != null
 val isSigningEnabled = findFilledProperty("signing.keyId") != null &&
         findFilledProperty("signing.password") != null &&
@@ -43,7 +43,9 @@ kotlin {
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs { d8() }
-    // wasmWasi { nodejs() }
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmWasi { nodejs() }
 
     // https://kotlinlang.org/docs/native-target-support.html
 
@@ -88,6 +90,12 @@ kotlin {
                 val serialization = findProperty("version.serialization")!!
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-cbor:$serialization")
+            }
+        }
+        getByName("jvmTest") {
+            dependencies {
+                val serialization = findProperty("version.serialization")!!
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-hocon:$serialization")
             }
         }
     }

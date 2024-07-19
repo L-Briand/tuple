@@ -5,7 +5,7 @@ import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.descriptors.SerialKind
 import kotlinx.serialization.descriptors.StructureKind
 
-class TupleDescriptor(private val descriptors: Array<out SerialDescriptor>) : SerialDescriptor {
+internal class TupleDescriptor(private val descriptors: Array<out SerialDescriptor>) : SerialDescriptor {
     @ExperimentalSerializationApi
     override val kind: SerialKind get() = StructureKind.LIST
 
