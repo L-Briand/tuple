@@ -2,8 +2,8 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
 plugins {
-    kotlin("multiplatform") version "2.0.0"
-    kotlin("plugin.serialization") version "2.0.0"
+    kotlin("multiplatform") version "2.0.10"
+    kotlin("plugin.serialization") version "2.0.10"
     id("maven-publish")
     id("signing")
 }
@@ -22,6 +22,7 @@ val isSigningEnabled = findFilledProperty("signing.keyId") != null &&
         findFilledProperty("signing.secretKeyRingFile") != null
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -90,6 +91,7 @@ kotlin {
                 val serialization = findProperty("version.serialization")!!
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-cbor:$serialization")
+                implementation("net.orandja.obor:obor:2.0.0")
             }
         }
         getByName("jvmTest") {

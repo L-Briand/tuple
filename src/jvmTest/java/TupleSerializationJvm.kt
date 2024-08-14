@@ -18,6 +18,7 @@ class TupleSerializationJvm {
     @Serializable
     data class TestTuple(val tuple: Tuple3<String, Int, TestData>)
 
+
     @Test
     fun serialize() {
         val data = TestTuple(tuple("a", 23, TestData("b")))

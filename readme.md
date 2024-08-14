@@ -17,7 +17,7 @@ Add the dependency to your Gradle dependency like so:
 
 ```kotlin
 dependencies {
-    implementation("net.orandja.kt:tuple:1.0.0")
+    implementation("net.orandja.kt:tuple:1.0.1")
 }
 ```
 
@@ -29,7 +29,7 @@ kotlin {
     sourceSets {
         getByName("commonMain") {
             dependencies {
-                implementation("net.orandja.kt:tuple:1.0.0")
+                implementation("net.orandja.kt:tuple:1.0.1")
             }
         }
     }
